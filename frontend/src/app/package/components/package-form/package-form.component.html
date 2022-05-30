@@ -1,0 +1,46 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="packageTitle" />
+      <mat-error *ngIf="packageTitle?.errors?.['required']">Required</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="flex gap-2">
+    <mat-form-field appearance="fill" class="grow">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="packageType">
+        <mat-option value="firmware">Firmware</mat-option>
+        <mat-option value="tool">Tool</mat-option>
+      </mat-select>
+      <mat-error *ngIf="packageType?.errors?.['required']">Required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="grow">
+      <mat-label>Version</mat-label>
+      <input matInput formControlName="packageVersion" />
+      <mat-hint align="end">ex 2.1.2</mat-hint>
+      <mat-error *ngIf="packageVersion?.errors?.['pattern']"
+        >wrong format example 1.0.0</mat-error
+      >
+      <mat-error *ngIf="packageVersion?.errors?.['required']"
+        >Required</mat-error
+      >
+    </mat-form-field>
+  </div>
+  <app-chip-input formControlName="supportedDevices"></app-chip-input>
+  <mat-error *ngIf="supportedDevices?.errors?.['required']" class="mb-4"
+    >Suported Devices Required</mat-error
+  >
+
+  <div *ngIf="!editPackage">
+    <app-file-input formControlName="uploadFile"></app-file-input>
+    <mat-error *ngIf="uploadFile?.errors?.['required']" class="mb-4"
+      >File Required</mat-error
+    >
+  </div>
+  <div class="flex justify-end">
+    <button mat-raised-button color="primary" type="submit">
+      {{ editPackage ? "Update" : "Add Package" }}
+    </button>
+  </div>
+</form>

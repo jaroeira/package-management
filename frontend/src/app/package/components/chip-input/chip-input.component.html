@@ -1,0 +1,18 @@
+<mat-form-field class="w-full">
+  <mat-label>Supported Devices</mat-label>
+  <mat-chip-list #chipList aria-label="Supported Devices">
+    <mat-chip *ngFor="let item of items" (removed)="remove(item)">
+      {{ item }}
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+    <input
+      #itemInput
+      placeholder="type device code and press enter"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="add($event)"
+    />
+  </mat-chip-list>
+</mat-form-field>

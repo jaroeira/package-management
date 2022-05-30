@@ -1,0 +1,38 @@
+<section>
+  <div class="my-4 flex justify-center">
+    <app-search-box
+      (filterSelected)="onFilterSelected($event)"
+    ></app-search-box>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="my-2">
+    <div
+      *ngIf="!(isLoading$ | async)"
+      class="flex flex-col gap-4 w-2/3 mx-auto"
+    >
+      <app-package-card
+        *ngFor="let package of packages$ | async"
+        [package]="package"
+        (editPackage)="onEditClicked($event)"
+        (deletePackage)="onDeleteClicked($event)"
+      ></app-package-card>
+    </div>
+
+    <div
+      *ngIf="isLoading$ | async"
+      class="flex flex-col justify-center items-center gap-4"
+    >
+      <mat-spinner [diameter]="50"></mat-spinner>
+      <h3>Loading</h3>
+    </div>
+
+    <div
+      *ngIf="
+        !(isLoading$ | async) && (packages$ | async)?.length === 0 && !firstLoad
+      "
+      class="flex justify-center py-32"
+    >
+      <p class="text-xl">No Package found</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  database:
+    image: mongo:4.4.14 
+    restart: always
+    volumes:
+      - mongodata:/data/db
+    env_file:
+      - ./env/mongo.env
+  backend:
+    build: ./rest-api
+    ports:
+      - '8080:8080'
+    env_file:
+      - ./env/backend.env
+    volumes:
+      - ./rest-api/src/uploads:/app/src/uploads
+      - ./rest-api/src:/app/src
+    depends_on:
+      - database
+  frontend:
+    build: ./frontend
+    ports:
+      - '4200:4200'
+    volumes:
+      - ./frontend/src:/app/src
+    depends_on:
+      - backend
+
+
+volumes:
+  mongodata:

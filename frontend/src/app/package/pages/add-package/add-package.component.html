@@ -1,0 +1,15 @@
+<section class="py-5">
+  <div *ngIf="!(isLoading$ | async)">
+    <mat-card class="w-1/2 mx-auto">
+      <app-package-form (onFormData)="onFormData($event)"></app-package-form>
+    </mat-card>
+  </div>
+
+  <div
+    *ngIf="isLoading$ | async"
+    class="flex flex-col justify-center items-center gap-4"
+  >
+    <mat-spinner [diameter]="50"></mat-spinner>
+    <h3>Loading</h3>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+[
+    {
+        "_id": "6290ded2e232a27fd5c77a0a",
+        "title": "Firmware 1",
+        "type": "firmware",
+        "version": "2.0.1",
+        "supportedDeviceTypes": [
+            "a",
+            "b",
+            "c"
+        ],
+        "fileName": "8ac9c740-ddc8-11ec-a6b0-95a8febb84af.zip"
+    },
+    {
+        "_id": "6290dee1e232a27fd5c77a0c",
+        "title": "Firmware 2",
+        "type": "firmware",
+        "version": "2.0.1",
+        "supportedDeviceTypes": [
+            "a",
+            "b",
+            "c",
+            "z",
+            "j",
+            "e"
+        ],
+        "fileName": "93b568a0-ddc8-11ec-a6b0-95a8febb84af.zip"
+    },
+    {
+        "_id": "6290dee9e232a27fd5c77a0e",
+        "title": "Firmware 3",
+        "type": "firmware",
+        "version": "2.0.1",
+        "supportedDeviceTypes": [
+            "d",
+            "j",
+            "e"
+        ],
+        "fileName": "9865f860-ddc8-11ec-a6b0-95a8febb84af.zip"
+    },
+    {
+        "_id": "6290defee232a27fd5c77a10",
+        "title": "Tool 1",
+        "type": "tool",
+        "version": "2.0.1",
+        "supportedDeviceTypes": [
+            "a",
+            "b",
+            "c"
+        ],
+        "fileName": "a50e0580-ddc8-11ec-a6b0-95a8febb84af.zip"
+    },
+    {
+        "_id": "6290df06e232a27fd5c77a12",
+        "title": "Tool 2",
+        "type": "tool",
+        "version": "8.8.8",
+        "supportedDeviceTypes": [
+            "a",
+            "b",
+            "c"
+        ],
+        "fileName": "a9f6e350-ddc8-11ec-a6b0-95a8febb84af.zip"
+    }
+]
