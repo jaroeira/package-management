@@ -1,0 +1,19 @@
+name: rest-api continuous integration
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test_push_to_main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: Install Dependencies
+      working-directory: ./rest-api
+      - run: npm ci
+      - name: Run Tests
+      - run: npm test
