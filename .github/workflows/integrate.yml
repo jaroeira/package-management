@@ -13,8 +13,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-      - name: Install Dependencies
-        # working-directory: ./rest-api
+      - name: Woworking-directory rest-api
+        working-directory: ./frontend
     # - run: npm ci
     # - name: Run Tests
     # - run: npm test
