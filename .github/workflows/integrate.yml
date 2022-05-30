@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 16
       - name: Install Dependencies
-      working-directory: ./rest-api
+        working-directory: ./rest-api
     # - run: npm ci
     # - name: Run Tests
     # - run: npm test
