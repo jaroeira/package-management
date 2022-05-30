@@ -6,14 +6,15 @@ on:
 
 jobs:
   build:
+    name: Test Rest Api
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 16
-      - name: Install Dependencies
-      working-directory: ./rest-api
-      - run: npm ci
-      - name: Run Tests
-      - run: npm test
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 16
+    - name: Install Dependencies
+    working-directory: ./rest-api
+    - run: npm ci
+    - name: Run Tests
+    - run: npm test
