@@ -18,5 +18,6 @@ jobs:
           node-version: '16'
 
       - name: Set Working directory
-        working-directory: ./rest
+        working-directory: ${{ github.workspace }}
+        run: ls -la
     # - run: npm test
