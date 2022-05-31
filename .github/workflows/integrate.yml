@@ -21,4 +21,7 @@ jobs:
         with:
           node-version: '16'
 
+      - name: install dependecies
+        run: npm ci
+
     # - run: npm test
