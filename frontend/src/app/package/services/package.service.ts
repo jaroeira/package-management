@@ -1,4 +1,9 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+  HttpParams,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -211,19 +216,25 @@ export class PackageService {
   private handleHttpError(error: any) {
     this._isLoading.next(false);
 
-    let message = '';
+    let message = 'Error';
     let title = 'An Error Occurred!';
 
-    if (error?.error && error.error instanceof ErrorEvent) {
-      message = error.error.message;
-      console.log(error.error.message);
-    } else {
-      console.log(error.message);
-      message = error.message;
-      if (error.status === 404) {
-        title = '404';
-        message = 'Package not found';
+    if (error instanceof HttpErrorResponse) {
+      title = error.status.toString();
+
+      switch (error.status) {
+        case 404:
+          message = 'Package not found';
+          this.router.navigate(['/list-packages']);
+          break;
+        case 400:
+          message = error.error.message;
+          break;
+        default:
+          message = 'something went wrong';
       }
+    } else {
+      message = error.message;
     }
 
     const dialogData = new ErrorDialogData(title, message);

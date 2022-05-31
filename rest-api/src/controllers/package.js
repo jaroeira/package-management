@@ -46,6 +46,8 @@ exports.listPackages = async (req, res, next) => {
 
   const query = getQuery(filter);
 
+  //TODO: Implement pagination
+
   try {
     const results = await Package.find(query);
 

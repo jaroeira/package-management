@@ -24,6 +24,8 @@ const fileStorageConfig = multer.diskStorage({
   },
 });
 
+//TODO: Implement upload to cloud storage
+
 const fileStorage = multer({
   storage: fileStorageConfig,
   fileFilter: filter,
