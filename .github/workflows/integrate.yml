@@ -18,5 +18,5 @@ jobs:
           node-version: '16'
 
       - name: Set Working directory
-        working-directory: ./rest-api
+        working-directory: ./rest
     # - run: npm test
