@@ -157,6 +157,25 @@ describe('Package test', () => {
         'Validation error: "version" with value "10.10.10.10" fails to match the required pattern: /^\\d+(?:\\.\\d+){2}$/'
       );
     });
+
+    it('should return error when file type is not allowed', async () => {
+      const sampleFilePath = path.join(
+        __dirname,
+        'utils',
+        'wrong-file-type.jpg'
+      );
+
+      const response = await request
+        .post('/packages/create')
+        .attach('file', sampleFilePath)
+        .field('title', 'test')
+        .field('type', 'firmware')
+        .field('version', '1.1.1')
+        .field('supportedDeviceTypes[]', 'a');
+
+      expect(response.status).toBe(400);
+      expect(response.body.message).toBe('Error: invalid file type');
+    });
   });
 
   // Endpoint GET /packages/get-by-id ------------------------------------------
