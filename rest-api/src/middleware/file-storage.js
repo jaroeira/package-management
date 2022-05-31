@@ -3,7 +3,6 @@ const path = require('path');
 const uuid = require('uuid');
 
 const filter = (req, file, cb) => {
-  console.log('file filter', file.mimetype);
   const fileTypes = /zip|tar|bin|rar|7z/;
   const mimetype = fileTypes.test(file.mimetype);
   const extname = fileTypes.test(path.extname(file.originalname));
