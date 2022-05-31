@@ -1,6 +1,7 @@
 name: rest-api continuous integration
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
 
