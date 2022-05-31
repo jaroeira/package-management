@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
 
+defaults:
+  run:
+    working-directory: ./rest-api
+
 jobs:
   build:
     name: Test Rest Api
@@ -17,7 +21,4 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Set Working directory
-        working-directory: ${{ github.workspace }}
-        run: ls -la
     # - run: npm test
