@@ -3,18 +3,33 @@
     <div class="w-full flex justify-between items-center text-gray-500">
       <a class="uppercase tracking-wider" routerLink="/">Package Management</a>
       <div class="flex">
-        <ul class="flex gap-4">
-          <li>
-            <a mat-button routerLink="list-packages" routerLinkActive="active"
-              >View Packages</a
-            >
-          </li>
-          <li>
-            <a mat-button routerLinkActive="active" routerLink="add-package"
-              >Add New Package</a
-            >
+        <ul class="hidden md:flex gap-4">
+          <li *ngFor="let item of menuItems">
+            <a mat-button [routerLink]="item.path" routerLinkActive="active">{{
+              item.label
+            }}</a>
           </li>
         </ul>
+        <div class="md:hidden">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button
+              *ngFor="let item of menuItems"
+              mat-menu-item
+              [routerLink]="item.path"
+              routerLinkActive="active"
+            >
+              <mat-icon
+                ><span class="material-symbols-outlined">
+                  {{ item.icon }}
+                </span>
+              </mat-icon>
+              <span>{{ item.label }}</span>
+            </button>
+          </mat-menu>
+        </div>
       </div>
     </div>
   </mat-toolbar>
