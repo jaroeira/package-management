@@ -13,6 +13,12 @@ exports.createPackage = async (req, res, next) => {
     fileName: file.filename,
   });
 
+  // Business Logic
+  // Check other related packages...
+  // Is it ok to add this package?
+  // Generate some statistics about the packages....
+  // Logic could be in a external file
+
   try {
     await newPackage.save();
   } catch (err) {
