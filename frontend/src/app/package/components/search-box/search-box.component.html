@@ -4,8 +4,8 @@
     [formGroup]="form"
     (ngSubmit)="onFilter(formDirective)"
   >
-    <div class="flex gap-2">
-      <mat-form-field appearance="fill">
+    <div class="flex gap-2 flex-col sm:flex-row">
+      <mat-form-field appearance="fill" class="grow">
         <mat-label>Type</mat-label>
         <mat-select formControlName="packageType">
           <mat-option value="firmware">Firmware</mat-option>
@@ -13,7 +13,7 @@
         </mat-select>
         <mat-error *ngIf="false">Required</mat-error>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="grow">
         <mat-label>Version</mat-label>
         <input matInput formControlName="packageVersion" />
         <mat-hint align="end">ex 1.0.0</mat-hint>

@@ -6,7 +6,7 @@
       <mat-error *ngIf="packageTitle?.errors?.['required']">Required</mat-error>
     </mat-form-field>
   </div>
-  <div class="flex gap-2">
+  <div class="flex gap-2 md:flex-row flex-col">
     <mat-form-field appearance="fill" class="grow">
       <mat-label>Type</mat-label>
       <mat-select formControlName="packageType">
